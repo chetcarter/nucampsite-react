@@ -145,8 +145,8 @@ class Contact extends Component {
                     show="touched"
                     component="div"
                     messages={{
-                        required: 'Required',
-                        minLength: 'Must be at least 2 characters',
+                        required:'Required',
+                        minLength:'Must be at least 2 characters',
                         maxLength:'Must be 15 characters or less'
                     }}
                   />
