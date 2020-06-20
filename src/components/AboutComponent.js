@@ -9,9 +9,10 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/BaseUrl';
 
 function PartnerList(props) {
-  const partners = props.partners.map((partner) => {
+  const partners = props.partners.partners.map((partner) => {
     return (
       <Media tag="li" key={partner.id}>
         <RenderPartner partner={partner} />
@@ -49,7 +50,7 @@ function RenderPartner({ partner }) {
   if (partner) {
     return (
       <React.Fragment>
-        <Media object src={partner.image} alt={partner.name} width="150" />
+        <Media object src={baseUrl + partner.image} alt={partner.name} width="150" />
         <Media body className="ml-5 mb-4">
           <Media heading>{partner.name}</Media>
           {partner.description}
