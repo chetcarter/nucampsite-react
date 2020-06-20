@@ -216,7 +216,7 @@ export const postFeedback = (firstName, lastName, phoneNum, email, agree, contac
     error => { throw error; }
     )
     .then(response => response.json())
-    .then(response => alert(`Thank you for your feedback ${response}`))
+    .then(response => alert(`Thank you for your feedback ${JSON.stringify(response)}`))
     .catch(error => {
         console.log('post comment', error.message);
         alert('Your comment could not be posted/nError: ' + error.message);
