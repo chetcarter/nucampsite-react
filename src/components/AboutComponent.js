@@ -10,15 +10,19 @@ import {
 import { Link } from "react-router-dom";
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/BaseUrl';
+import { Fade, Stagger } from 'react-animation-components';
 
 function PartnerList(props) {
   const partners = props.partners.partners.map((partner) => {
     return (
-      <Media tag="li" key={partner.id}>
-        <RenderPartner partner={partner} />
-      </Media>
+      <Fade in key={partner.id}>
+        <Media tag="li">
+            <RenderPartner partner={partner} />
+        </Media>
+      </Fade>
     );
   });
+
   if (props.partners.isLoading) {
     return (
       <div className="container">
@@ -41,7 +45,9 @@ function PartnerList(props) {
   }
   return (
     <div className="col mt-4">
-      <Media list>{partners}</Media>
+      <Media list>
+        <Stagger in>{partners}</Stagger>
+      </Media>
     </div>
   );
 }
